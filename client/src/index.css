@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* ============================================
+   Custom Theme Tokens
+   ============================================ */
+@theme {
+  --color-primary-400: #33c7c7;
+  --color-primary-500: #00A4A4;
+  --color-primary-600: #008585;
+  --color-accent-400: #1a3a8f;
+  --color-accent-500: #0C206D;
+  --color-accent-600: #091854;
+  --color-surface-950: #0a0a0f;
+  --color-surface-900: #0f0f1a;
+  --color-surface-800: #1a1a2e;
+  --color-surface-700: #232340;
+  --color-surface-600: #2d2d50;
+}
+
+/* ============================================
+   Base Resets & Typography
+   ============================================ */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(180deg, #0a0a0f 0%, #0f0f1a 50%, #0a0a0f 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  body.light {
+    background: linear-gradient(180deg, #fafafa 0%, #f1f5f9 50%, #fafafa 100%);
+    color: #1e293b;
+  }
+
+  #root {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  main {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  section {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  ::selection {
+    background: rgba(0, 164, 164, 0.3);
+    color: #f1f5f9;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f0f1a; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00A4A4, #0C206D);
+  border-radius: 3px;
+}
+
+/* ============================================
+   Glass Effects
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+body.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================
+   Gradient Text
+   ============================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #33c7c7 0%, #1a3a8f 50%, #33c7c7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================
+   Background Orbs
+   ============================================ */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.25;
+  animation: float 10s ease-in-out infinite;
+  pointer-events: none;
+}
+.orb-1 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0, 164, 164, 0.6), transparent 70%);
+  top: 10%; left: 10%;
+}
+.orb-2 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(12, 32, 109, 0.5), transparent 70%);
+  top: 40%; right: 10%;
+  animation-delay: -4s;
+}
+.orb-3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(0, 164, 164, 0.4), transparent 70%);
+  bottom: 15%; left: 25%;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -25px) scale(1.05); }
+  66% { transform: translate(-25px, 20px) scale(0.95); }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progressGrow {
+  from { width: 0; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.5s ease-out both;
+}
+
+/* ============================================
+   Skeleton Loader
+   ============================================ */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+body.light .skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.08) 50%,
+    rgba(0, 0, 0, 0.04) 75%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================
+   Section Divider
+   ============================================ */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00A4A4, #0C206D);
+  border-radius: 2px;
+  margin: 0 auto 1rem auto;
+}
+
+/* ============================================
+   Card Hover Effect
+   ============================================ */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(0, 164, 164, 0.15);
+}
+
+/* ============================================
+   Responsive Helpers
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 2.5rem !important;
+  }
+  .section-heading {
+    font-size: 2rem !important;
+  }
+}
