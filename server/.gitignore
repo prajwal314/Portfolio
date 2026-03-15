@@ -1,3 +1,14 @@
+# Environment variables
 .env
-.env.example
+.env.local
+.env.*.local
+
+# Dependencies
 node_modules
+
+# Vercel
+.vercel
+
+# Logs
+*.log
+npm-debug.log*
