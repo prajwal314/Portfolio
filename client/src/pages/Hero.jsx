@@ -96,13 +96,13 @@ const Hero = () => {
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-display mb-6"
+                    className="hero-heading mb-6"
                 >
                     <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>
                         Hi, I&apos;m{' '}
                     </span>
                     <span className="gradient-text">{PERSONAL_INFO.name}</span>
-                </motion.h1>
+                </motion.h1> 
 
                 {/* Typing effect */}
                 <motion.div
@@ -150,11 +150,11 @@ const Hero = () => {
                 >
                     <motion.button
                         onClick={scrollToProjects}
-                        className="group relative px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold text-sm overflow-hidden cursor-pointer"
+                        className="group relative px-8 py-3.5 rounded-xl bg-linear-to-r from-primary-500 to-accent-500 text-white font-semibold text-sm overflow-hidden cursor-pointer"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                     >
-                        <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
+                        <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500 skew-x-12" />
                         <span className="relative flex items-center gap-2">
                             View Projects
                             <HiArrowDown className="group-hover:translate-y-0.5 transition-transform" />
@@ -174,22 +174,7 @@ const Hero = () => {
                     </motion.button>
                 </motion.div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="absolute bottom-8 left-1/2 -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                        className={`w-6 h-10 rounded-full border-2 flex items-start justify-center pt-2 ${theme === 'dark' ? 'border-gray-600' : 'border-gray-300'
-                            }`}
-                    >
-                        <motion.div className="w-1 h-2 rounded-full bg-primary-500" />
-                    </motion.div>
-                </motion.div>
+                
             </div>
         </section>
     );

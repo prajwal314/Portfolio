@@ -77,11 +77,11 @@ const Navbar = () => {
                             e.preventDefault();
                             scrollToSection('#hero');
                         }}
-                        className="text-xl font-bold gradient-text cursor-pointer"
+                        className="cursor-pointer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        {'<PD />'}
+                        <img src="/prajwal-logo.svg" alt="Prajwal Logo" className="h-10 w-auto" />
                     </motion.a>
 
                     {/* Desktop Navigation */}
@@ -102,13 +102,9 @@ const Navbar = () => {
                                 whileTap={{ scale: 0.95 }}
                             >
                                 {link.label}
-                                {/* Active indicator dot */}
+                                {/* Active indicator underline */}
                                 {activeSection === link.href.replace('#', '') && (
-                                    <motion.div
-                                        layoutId="activeSection"
-                                        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary-500"
-                                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                                    />
+                                    <span className="absolute left-4 right-4 bottom-1 h-0.5 rounded-full bg-primary-500" />
                                 )}
                             </motion.button>
                         ))}

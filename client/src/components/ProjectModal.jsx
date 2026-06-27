@@ -46,7 +46,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     onClick={onClose}
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+                    className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -78,7 +78,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                     alt={project.title}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-surface-800/80 to-transparent" />
+                                <div className="absolute inset-0 bg-linear-to-t from-surface-800/80 to-transparent" />
                             </div>
                         )}
 
@@ -133,7 +133,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                                         href={project.liveLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-medium hover:opacity-90 transition-opacity"
+                                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-linear-to-r from-primary-500 to-accent-500 text-white text-sm font-medium hover:opacity-90 transition-opacity"
                                     >
                                         <HiExternalLink size={16} />
                                         Live Demo

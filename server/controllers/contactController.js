@@ -6,7 +6,6 @@
  * MVC Controller for the Contact form.
  * Handles:
  *   - POST /api/contact   → Save a new message
- *   - GET /api/contact     → Get all messages (admin)
  * 
  * Messages are stored in MongoDB so the portfolio
  * owner can review them later.
@@ -43,26 +42,6 @@ const submitContact = async (req, res, next) => {
   }
 };
 
-/**
- * @desc    Get all contact messages (for admin review)
- * @route   GET /api/contact
- * @access  Admin (JWT protected)
- */
-const getMessages = async (req, res, next) => {
-  try {
-    const messages = await Contact.find().sort({ createdAt: -1 });
-
-    res.status(200).json({
-      success: true,
-      count: messages.length,
-      data: messages,
-    });
-  } catch (error) {
-    next(error);
-  }
-};
-
 module.exports = {
   submitContact,
-  getMessages,
 };

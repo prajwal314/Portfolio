@@ -28,7 +28,8 @@ const Projects = () => {
         const fetchProjects = async () => {
             try {
                 const { data } = await api.get('/projects');
-                setProjects(data.data);
+                const fetchedProjects = Array.isArray(data?.data) ? data.data : [];
+                setProjects(fetchedProjects);
             } catch (err) {
                 console.error('Failed to fetch projects:', err);
             } finally {
@@ -60,7 +61,7 @@ const Projects = () => {
                 {!loading && projects.length === 0 && (
                     <div className="text-center py-16">
                         <p className={`text-lg ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                            No projects yet. Add some via the admin API!
+                            No projects yet. Add some records to MongoDB Atlas and redeploy the backend.
                         </p>
                     </div>
                 )}
@@ -81,35 +82,6 @@ const Projects = () => {
                                     }`}
                                 whileHover={{ y: -6 }}
                             >
-                                {/* Project image / placeholder */}
-                                <div className="relative h-48 overflow-hidden">
-                                    {project.image ? (
-                                        <img
-                                            src={project.image}
-                                            alt={project.title}
-                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                    ) : (
-                                        <div
-                                            className={`w-full h-full flex items-center justify-center ${theme === 'dark' ? 'bg-surface-700' : 'bg-gray-100'
-                                                }`}
-                                        >
-                                            <HiEye
-                                                className={`text-4xl ${theme === 'dark' ? 'text-gray-600' : 'text-gray-300'
-                                                    }`}
-                                            />
-                                        </div>
-                                    )}
-
-                                    {/* Gradient overlay */}
-                                    <div
-                                        className={`absolute inset-0 bg-gradient-to-t ${theme === 'dark'
-                                            ? 'from-surface-800/90 via-transparent'
-                                            : 'from-white/80 via-transparent'
-                                            } opacity-60`}
-                                    />
-                                </div>
-
                                 {/* Content */}
                                 <div className="p-6">
                                     <h3
@@ -193,6 +165,7 @@ const Projects = () => {
                 {/* Project detail modal */}
                 <ProjectModal
                     project={selectedProject}
+                    isOpen={Boolean(selectedProject)}
                     onClose={() => setSelectedProject(null)}
                 />
             </div>

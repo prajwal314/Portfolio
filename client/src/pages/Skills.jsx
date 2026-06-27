@@ -3,7 +3,7 @@
  * Skills Section
  * ============================================
  * 
- * Categorized skill cards with progress bars.
+ * Categorized skill cards with simple skill tags.
  * Uses direct animation props instead of variants.
  */
 
@@ -27,7 +27,6 @@ const categoryMeta = {
         bg: 'bg-violet-500/10',
         border: 'border-violet-500/20',
         text: 'text-violet-400',
-        bar: 'from-violet-500 to-purple-500',
     },
     mern: {
         icon: HiCube,
@@ -35,7 +34,6 @@ const categoryMeta = {
         bg: 'bg-blue-500/10',
         border: 'border-blue-500/20',
         text: 'text-blue-400',
-        bar: 'from-blue-500 to-cyan-400',
     },
     databases: {
         icon: HiDatabase,
@@ -43,7 +41,6 @@ const categoryMeta = {
         bg: 'bg-emerald-500/10',
         border: 'border-emerald-500/20',
         text: 'text-emerald-400',
-        bar: 'from-emerald-500 to-teal-400',
     },
     aiml: {
         icon: HiChip,
@@ -51,7 +48,6 @@ const categoryMeta = {
         bg: 'bg-orange-500/10',
         border: 'border-orange-500/20',
         text: 'text-orange-400',
-        bar: 'from-orange-500 to-amber-400',
     },
     devops: {
         icon: HiCloud,
@@ -59,14 +55,7 @@ const categoryMeta = {
         bg: 'bg-pink-500/10',
         border: 'border-pink-500/20',
         text: 'text-pink-400',
-        bar: 'from-pink-500 to-rose-400',
     },
-};
-
-const getLevelLabel = (level) => {
-    if (level >= 80) return 'Advanced';
-    if (level >= 50) return 'Intermediate';
-    return 'Beginner';
 };
 
 const Skills = () => {
@@ -77,7 +66,7 @@ const Skills = () => {
             <div className="max-w-6xl mx-auto px-6 lg:px-8">
                 <SectionHeading
                     title="Skills & Technologies"
-                    subtitle="What I work with — organized by domain with proficiency levels."
+                    subtitle="What I work with — organized by domain."
                 />
 
                 {/* Skills grid */}
@@ -128,38 +117,17 @@ const Skills = () => {
                                     </div>
                                 </div>
 
-                                {/* Skill items with progress bars */}
-                                <div className="space-y-4">
+                                {/* Skill items as simple boxes */}
+                                <div className="flex flex-wrap gap-2.5">
                                     {category.items.map((skill) => (
-                                        <div key={skill.name}>
-                                            <div className="flex items-center justify-between mb-1.5">
-                                                <span
-                                                    className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                                                        }`}
-                                                >
-                                                    {skill.name}
-                                                </span>
-                                                <span
-                                                    className={`text-xs font-medium ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
-                                                        }`}
-                                                >
-                                                    {getLevelLabel(skill.level)}
-                                                </span>
-                                            </div>
-
-                                            {/* Progress bar */}
-                                            <div
-                                                className={`h-1.5 rounded-full overflow-hidden ${theme === 'dark' ? 'bg-white/5' : 'bg-gray-100'
-                                                    }`}
-                                            >
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    whileInView={{ width: `${skill.level}%` }}
-                                                    viewport={{ once: true }}
-                                                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                                                    className={`h-full rounded-full bg-gradient-to-r ${meta.bar}`}
-                                                />
-                                            </div>
+                                        <div
+                                            key={skill.name}
+                                            className={`px-3 py-2 rounded-lg border text-sm font-medium transition-colors ${theme === 'dark'
+                                                ? 'bg-white/5 border-white/10 text-gray-200 hover:bg-white/10'
+                                                : 'bg-gray-50 border-gray-200 text-gray-700 hover:bg-gray-100'
+                                                }`}
+                                        >
+                                            {skill.name}
                                         </div>
                                     ))}
                                 </div>

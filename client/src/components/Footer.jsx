@@ -34,12 +34,12 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Logo & Copyright */}
                     <div className="text-center md:text-left">
-                        <span className="text-lg font-bold gradient-text">{'<PD />'}</span>
+                        <img src="/prajwal-logo.svg" alt="Prajwal Logo" className="h-12 w-auto mx-auto md:mx-0" />
                         <p
                             className={`text-sm mt-1 ${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
                                 }`}
                         >
-                            © {year} {PERSONAL_INFO.name}. Built with ❤️ and MERN.
+                            © {year} {PERSONAL_INFO.name}. All rights reserved.
                         </p>
                     </div>
 

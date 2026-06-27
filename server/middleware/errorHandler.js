@@ -42,17 +42,6 @@ const errorHandler = (err, req, res, next) => {
     message = `Invalid ${err.path}: ${err.value}`;
   }
 
-  // Handle JWT errors
-  if (err.name === 'JsonWebTokenError') {
-    statusCode = 401;
-    message = 'Invalid token.';
-  }
-
-  if (err.name === 'TokenExpiredError') {
-    statusCode = 401;
-    message = 'Token has expired.';
-  }
-
   res.status(statusCode).json({
     success: false,
     message,

@@ -33,7 +33,6 @@ const errorHandler = require('./middleware/errorHandler');
 // Import route modules
 const projectRoutes = require('./routes/projectRoutes');
 const contactRoutes = require('./routes/contactRoutes');
-const authRoutes = require('./routes/authRoutes');
 
 // Initialize Express app
 const app = express();
@@ -74,8 +73,8 @@ if (process.env.NODE_ENV === 'development') {
 // CORS — allow requests from the React frontend
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
-    credentials: true,
+    origin: true,
+    credentials: false,
   })
 );
 
@@ -101,7 +100,6 @@ app.get('/api/health', (req, res) => {
 // Mount route modules
 app.use('/api/projects', projectRoutes);
 app.use('/api/contact', contactRoutes);
-app.use('/api/auth', authRoutes);
 
 // 404 handler for undefined routes
 app.use((req, res) => {

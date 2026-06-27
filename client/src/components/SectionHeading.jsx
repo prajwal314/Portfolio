@@ -23,7 +23,7 @@ const SectionHeading = ({ title, subtitle }) => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-16 text-center"
         >
-            <h2 className="text-headline gradient-text section-heading inline-block mb-4">
+            <h2 className="gradient-text section-heading inline-block mb-4">
                 {title}
             </h2>
             {subtitle && (

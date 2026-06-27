@@ -19,9 +19,6 @@ const ProjectSkeleton = () => {
                 } border ${theme === 'dark' ? 'border-white/5' : 'border-gray-200'
                 }`}
         >
-            {/* Image placeholder */}
-            <div className="skeleton h-48 w-full" />
-
             {/* Content placeholders */}
             <div className="p-6 space-y-4">
                 {/* Title */}
