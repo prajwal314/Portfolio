@@ -68,7 +68,7 @@ export const SKILLS = {
   databases: {
     title: 'Databases',
     items: [
-      { name: 'PostgreSQL'},
+      { name: 'MySQL'},
       { name: 'MongoDB'},
       { name: 'Convex'},
     ],

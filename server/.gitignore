@@ -2,6 +2,7 @@
 .env
 .env.local
 .env.*.local
+.env.example
 
 # Dependencies
 node_modules
@@ -12,3 +13,5 @@ node_modules
 # Logs
 *.log
 npm-debug.log*
+
+db.js
