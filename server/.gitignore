@@ -14,4 +14,4 @@ node_modules
 *.log
 npm-debug.log*
 
-db.js
+config/db.js
