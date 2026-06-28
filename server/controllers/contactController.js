@@ -9,6 +9,8 @@
  * 
  * Messages are stored in MongoDB so the portfolio
  * owner can review them later.
+ * 
+ * Note: Input validation is performed in routes/contactRoutes.js
  */
 
 const Contact = require('../models/Contact');
@@ -22,14 +24,7 @@ const submitContact = async (req, res, next) => {
   try {
     const { name, email, message } = req.body;
 
-    // Basic validation (model also validates)
-    if (!name || !email || !message) {
-      return res.status(400).json({
-        success: false,
-        message: 'Please provide name, email, and message.',
-      });
-    }
-
+    // Create and save contact message
     const contact = await Contact.create({ name, email, message });
 
     res.status(201).json({
