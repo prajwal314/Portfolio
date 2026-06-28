@@ -14,6 +14,7 @@ const connectDB = async () => {
   try {
     // Attempt to connect to MongoDB
     const conn = await mongoose.connect(process.env.MONGO_URI);
+    
 
     console.log(`\n✅ MongoDB Connected: ${conn.connection.host}`);
     console.log(`📦 Database: ${conn.connection.name}\n`);
@@ -27,11 +28,19 @@ const connectDB = async () => {
       console.warn('⚠️  MongoDB disconnected');
     });
 
-  } catch (error) {
-    console.error(`❌ MongoDB connection failed: ${error.message}`);
-    // Exit process with failure code if DB connection fails
-    process.exit(1);
-  }
+  } 
+  
+  // catch (error) {
+  //   console.error(`❌ MongoDB connection failed: ${error.message}`);
+  //   // Exit process with failure code if DB connection fails
+  //   process.exit(1);
+  // }
+
+  catch (error) {
+  console.error("MongoDB connection failed:", error);
+  throw error;
+}
+  
 };
 
 module.exports = connectDB;
