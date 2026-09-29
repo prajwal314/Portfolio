@@ -34,6 +34,19 @@ export const EDUCATION = [
 
 export const EXPERIENCE = [
   {
+    role: 'Industry Sponsored Project',
+    company: 'P&ID Analysis and E&I Deliverable Generation',
+    duration: 'Jan 2026 - May 2026',
+    location: 'Pune, MH',
+    description: 'Developed a GUI to automate extraction of Electrical & Instrumentation (E&I) deliverables from P&IDs.',
+    highlights: [
+      'Built a computer vision pipeline using YOLOv8, OpenCV, EasyOCR, and Tesseract OCR for instrument symbol detection and tag extraction',
+      'Implemented symbol-to-tag mapping and a rule-based engine to generate structured Excel reports containing Instrument Tags, Types, I/O Types, Alarm Conditions, and Trip Details',
+      'Trained and evaluated custom YOLOv8 models on annotated P&ID datasets to improve detection accuracy',
+      'Achieved 24% mAP@50, 37% Precision, and 53% Recall through model optimization',
+    ],
+  },
+  {
     role: 'Front End Developer',
     company: 'Sarvodaya Arogya Vikas Foundation, Akola',
     duration: 'March 2025 – June 2025',

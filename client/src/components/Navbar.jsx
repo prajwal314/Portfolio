@@ -69,21 +69,7 @@ const Navbar = () => {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16 lg:h-20">
-                    {/* Logo */}
-                    <motion.a
-                        href="#hero"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            scrollToSection('#hero');
-                        }}
-                        className="cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <img src="/prajwal-logo.svg" alt="Prajwal Logo" className="h-10 w-auto" />
-                    </motion.a>
-
+                <div className="relative flex items-center justify-center h-16 lg:h-20">
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-1">
                         {NAV_LINKS.map((link) => (
@@ -113,7 +99,7 @@ const Navbar = () => {
                         <motion.button
                             onClick={toggleTheme}
                             className={`ml-4 p-2 rounded-lg transition-colors cursor-pointer ${theme === 'dark'
-                                    ? 'text-yellow-400 hover:bg-white/10'
+                                    ? 'text-white hover:bg-white/10'
                                     : 'text-gray-600 hover:bg-black/5'
                                 }`}
                             whileHover={{ scale: 1.1, rotate: 15 }}
@@ -128,7 +114,7 @@ const Navbar = () => {
                     <div className="flex md:hidden items-center gap-3">
                         <motion.button
                             onClick={toggleTheme}
-                            className={`p-2 rounded-lg cursor-pointer ${theme === 'dark' ? 'text-yellow-400' : 'text-gray-600'
+                            className={`p-2 rounded-lg cursor-pointer ${theme === 'dark' ? 'text-white' : 'text-gray-600'
                                 }`}
                             whileTap={{ scale: 0.9 }}
                         >

@@ -98,10 +98,10 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className="hero-heading mb-6"
                 >
-                    <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>
+                    <span className={`inline-block mr-6 md:mr-8 text-xl md:text-2xl font-semibold align-baseline tracking-normal whitespace-nowrap ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                         Hi, I&apos;m{' '}
                     </span>
-                    <span className="gradient-text">{PERSONAL_INFO.name}</span>
+                    <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>{PERSONAL_INFO.name}</span>
                 </motion.h1> 
 
                 {/* Typing effect */}
@@ -150,7 +150,7 @@ const Hero = () => {
                 >
                     <motion.button
                         onClick={scrollToProjects}
-                        className="group relative px-8 py-3.5 rounded-xl bg-linear-to-r from-primary-500 to-accent-500 text-white font-semibold text-sm overflow-hidden cursor-pointer"
+                        className="group relative px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-100 overflow-hidden cursor-pointer"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                     >

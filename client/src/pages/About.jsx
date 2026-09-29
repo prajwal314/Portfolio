@@ -75,6 +75,12 @@ const About = () => {
                                     {item.institution || item.company}
                                 </p>
 
+                                {item.location && (
+                                    <p className={`-mt-2 mb-4 text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
+                                        {item.location}
+                                    </p>
+                                )}
+
                                 <p className={`text-base leading-relaxed ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                                     {item.description}
                                 </p>

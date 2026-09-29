@@ -4,17 +4,17 @@
    Custom Theme Tokens
    ============================================ */
 @theme {
-  --color-primary-400: #33c7c7;
-  --color-primary-500: #00A4A4;
-  --color-primary-600: #008585;
-  --color-accent-400: #1a3a8f;
-  --color-accent-500: #0C206D;
-  --color-accent-600: #091854;
-  --color-surface-950: #0a0a0f;
-  --color-surface-900: #0f0f1a;
-  --color-surface-800: #1a1a2e;
-  --color-surface-700: #232340;
-  --color-surface-600: #2d2d50;
+  --color-primary-400: #f5f5f5;
+  --color-primary-500: #ffffff;
+  --color-primary-600: #111111;
+  --color-accent-400: #ffffff;
+  --color-accent-500: #111111;
+  --color-accent-600: #000000;
+  --color-surface-950: #050505;
+  --color-surface-900: #0f0f0f;
+  --color-surface-800: #1a1a1a;
+  --color-surface-700: #232323;
+  --color-surface-600: #2d2d2d;
 }
 
 /* ============================================
@@ -87,7 +87,7 @@
   }
 
   ::selection {
-    background: rgba(0, 164, 164, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     color: #f1f5f9;
   }
 }
@@ -96,7 +96,7 @@
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #0f0f1a; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00A4A4, #0C206D);
+  background: linear-gradient(180deg, #ffffff, #000000);
   border-radius: 3px;
 }
 
@@ -116,23 +116,6 @@ body.light .glass {
 }
 
 /* ============================================
-   Gradient Text
-   ============================================ */
-.gradient-text {
-  background: linear-gradient(135deg, #33c7c7 0%, #1a3a8f 50%, #33c7c7 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 4s linear infinite;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-
-/* ============================================
    Background Orbs
    ============================================ */
 .orb {
@@ -145,18 +128,18 @@ body.light .glass {
 }
 .orb-1 {
   width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(0, 164, 164, 0.6), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
   top: 10%; left: 10%;
 }
 .orb-2 {
   width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(12, 32, 109, 0.5), transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.35), transparent 70%);
   top: 40%; right: 10%;
   animation-delay: -4s;
 }
 .orb-3 {
   width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(0, 164, 164, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 70%);
   bottom: 15%; left: 25%;
   animation-delay: -7s;
 }
@@ -245,7 +228,7 @@ body.light .skeleton {
 .section-divider {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #00A4A4, #0C206D);
+  background: linear-gradient(90deg, #ffffff, #000000);
   border-radius: 2px;
   margin: 0 auto 1rem auto;
 }
@@ -258,7 +241,7 @@ body.light .skeleton {
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px -12px rgba(0, 164, 164, 0.15);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.25);
 }
 
 /* ============================================

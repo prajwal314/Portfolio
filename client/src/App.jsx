@@ -7,7 +7,6 @@
 import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Hero from './pages/Hero';
 import About from './pages/About';
 import Skills from './pages/Skills';
@@ -27,8 +26,6 @@ function App() {
                     <Projects />
                     <Contact />
                 </main>
-
-                <Footer />
 
                 <Toaster
                     position="top-right"

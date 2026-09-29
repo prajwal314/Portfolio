@@ -249,7 +249,7 @@ const Contact = () => {
                             <motion.button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="group relative w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold text-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer overflow-hidden"
+                                className="group relative w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer overflow-hidden"
                                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                             >
