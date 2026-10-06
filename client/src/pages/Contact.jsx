@@ -15,6 +15,7 @@ import { useTheme } from '../context/ThemeContext';
 import { PERSONAL_INFO } from '../utils/constants';
 import api from '../utils/api';
 import SectionHeading from '../components/SectionHeading';
+import Container from '../components/Container';
 
 const Contact = () => {
     const { theme } = useTheme();
@@ -87,12 +88,16 @@ const Contact = () => {
         }`;
 
     return (
-        <section id="contact" className="relative py-24 lg:py-32">
-            <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <Container className="mt-20">
+        <section id="contact" className="relative">
+            <div className="w-full">
                 <SectionHeading
-                    title="Get in Touch"
-                    subtitle="Have a project in mind or just want to say hi? I'd love to hear from you."
+                    subHeading="Contact"
+                    heading="Get in Touch"
                 />
+                <p className="text-secondary text-sm mb-8 -mt-4">
+                    Have a project in mind or just want to say hi? I&apos;d love to hear from you.
+                </p>
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                     {/* Contact Info Sidebar */}
@@ -276,6 +281,7 @@ const Contact = () => {
                 </div>
             </div>
         </section>
+        </Container>
     );
 };
 

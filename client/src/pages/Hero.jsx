@@ -1,183 +1,92 @@
 /**
- * ============================================
- * Hero Section
- * ============================================
- * 
- * The first thing visitors see. Features:
- *   - Animated gradient orbs in background
- *   - Typing effect cycling through roles
- *   - Framer Motion entrance animations
- *   - CTA buttons for Projects and Contact
- *   - Responsive layout with clean spacing
+ * Hero — sleek format: avatar, name/title, description with skill pills,
+ * Resume + Get in touch buttons, social icon row.
  */
-
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { HiArrowDown, HiCode } from 'react-icons/hi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiMail, HiX } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
-import { PERSONAL_INFO } from '../utils/constants';
+import { PERSONAL_INFO, HERO_SKILLS, HERO_SOCIALS } from '../utils/constants';
+import Container from '../components/Container';
+import Skill from '../components/Skill';
+
+const socialIcons = {
+  x: <HiX size={24} />,
+  linkedin: <FaLinkedin size={24} />,
+  github: <FaGithub size={24} />,
+  email: <HiMail size={24} />,
+};
 
 const Hero = () => {
-    const { theme } = useTheme();
-    const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-    const [displayText, setDisplayText] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
+  const { theme } = useTheme();
+  const dark = theme === 'dark';
 
-    // Typing animation effect
-    useEffect(() => {
-        const currentRole = PERSONAL_INFO.roles[currentRoleIndex];
-        let timeout;
+  const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
-        if (!isDeleting) {
-            if (displayText.length < currentRole.length) {
-                timeout = setTimeout(() => {
-                    setDisplayText(currentRole.slice(0, displayText.length + 1));
-                }, 80);
-            } else {
-                timeout = setTimeout(() => setIsDeleting(true), 2000);
-            }
-        } else {
-            if (displayText.length > 0) {
-                timeout = setTimeout(() => {
-                    setDisplayText(displayText.slice(0, -1));
-                }, 40);
-            } else {
-                setIsDeleting(false);
-                setCurrentRoleIndex((prev) => (prev + 1) % PERSONAL_INFO.roles.length);
-            }
-        }
+  return (
+    <Container className="mx-auto max-w-5xl pt-10">
+      <img
+        src={PERSONAL_INFO.avatar}
+        alt="Prajwal Diwnale"
+        className="size-24 rounded-full object-cover border border-white/10"
+      />
 
-        return () => clearTimeout(timeout);
-    }, [displayText, isDeleting, currentRoleIndex]);
+      <div className="mt-8 flex flex-col gap-2">
+        <h1 className="text-4xl font-bold">
+          Hi, I&apos;m {PERSONAL_INFO.shortName} —{' '}
+          <span className="text-secondary">{PERSONAL_INFO.title}</span>
+        </h1>
 
-    const scrollToProjects = () => {
-        document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-    };
+        <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
+          <span>I build full-stack web apps using </span>
+          {HERO_SKILLS.map((s, i) => (
+            <span key={s.name} className="inline-flex items-center gap-1.5">
+              <Skill name={s.name} href={s.href} />
+              {i < HERO_SKILLS.length - 2 ? <span>,</span> : i === HERO_SKILLS.length - 2 ? <span> and</span> : <span>.</span>}
+            </span>
+          ))}
+          <span>
+            {' '}With a focus on <b className={dark ? 'text-white' : 'text-gray-900'}>UI</b> design.
+            Enthusiastic about <b className={dark ? 'text-white' : 'text-gray-900'}>AI/ML</b>, driven by a keen eye for detail.
+          </span>
+        </div>
+      </div>
 
-    const scrollToContact = () => {
-        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    return (
-        <section
-            id="hero"
-            className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      <div className="mt-8 flex flex-wrap gap-4">
+        <button
+          onClick={() => scrollTo('resume')}
+          className={`rounded-md border px-4 py-2 text-sm font-medium cursor-pointer transition-colors ${
+            dark ? 'border-white/20 bg-white/5 hover:bg-white/10' : 'border-black/20 bg-black/5 hover:bg-black/10'
+          }`}
         >
-            {/* Animated background orbs */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="orb orb-1" />
-                <div className="orb orb-2" />
-                <div className="orb orb-3" />
-            </div>
+          Resume / CV
+        </button>
+        <button
+          onClick={() => scrollTo('contact')}
+          className="rounded-md bg-white px-4 py-2 text-sm font-medium text-black hover:bg-gray-100 cursor-pointer transition-colors"
+        >
+          Get in touch
+        </button>
+      </div>
 
-            {/* Grid overlay */}
-            <div className="absolute inset-0 bg-grid" />
-
-            {/* Content — uses direct animation props, not variants */}
-            <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
-                {/* Status badge */}
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-8"
-                >
-                    <span
-                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium glass ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'
-                            }`}
-                    >
-                        <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                        Available for opportunities
-                    </span>
-                </motion.div>
-
-                {/* Main heading */}
-                <motion.h1
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                    className="hero-heading mb-6"
-                >
-                    <span className={`inline-block mr-6 md:mr-8 text-xl md:text-2xl font-semibold align-baseline tracking-normal whitespace-nowrap ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-                        Hi, I&apos;m{' '}
-                    </span>
-                    <span className={theme === 'dark' ? 'text-white' : 'text-gray-900'}>{PERSONAL_INFO.name}</span>
-                </motion.h1> 
-
-                {/* Typing effect */}
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-8 h-12 flex items-center justify-center"
-                >
-                    <div className="flex items-center gap-3">
-                        <HiCode
-                            className={`text-xl ${theme === 'dark' ? 'text-primary-400' : 'text-primary-600'
-                                }`}
-                        />
-                        <span
-                            className={`text-xl md:text-2xl font-mono font-medium ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                                }`}
-                        >
-                            {displayText}
-                            <motion.span
-                                animate={{ opacity: [1, 0] }}
-                                transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-                                className="inline-block w-0.5 h-6 ml-1 bg-primary-500 align-middle"
-                            />
-                        </span>
-                    </div>
-                </motion.div>
-
-                {/* Bio */}
-                <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className={`text-body-lg max-w-2xl mx-auto mb-12 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                        }`}
-                >
-                    {PERSONAL_INFO.bio}
-                </motion.p>
-
-                {/* CTA Buttons */}
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                >
-                    <motion.button
-                        onClick={scrollToProjects}
-                        className="group relative px-8 py-3.5 rounded-xl bg-white text-black font-semibold text-sm hover:bg-gray-100 overflow-hidden cursor-pointer"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                    >
-                        <span className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-500 skew-x-12" />
-                        <span className="relative flex items-center gap-2">
-                            View Projects
-                            <HiArrowDown className="group-hover:translate-y-0.5 transition-transform" />
-                        </span>
-                    </motion.button>
-
-                    <motion.button
-                        onClick={scrollToContact}
-                        className={`px-8 py-3.5 rounded-xl font-semibold text-sm border transition-colors cursor-pointer gradient-border ${theme === 'dark'
-                            ? 'text-white hover:bg-white/5'
-                            : 'text-gray-900 hover:bg-black/5'
-                            } border-transparent`}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                    >
-                        Get in Touch
-                    </motion.button>
-                </motion.div>
-
-                
-            </div>
-        </section>
-    );
+      <div className="mt-8 flex gap-4">
+        {HERO_SOCIALS.map((link) => (
+          <a
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.name}
+            title={link.name}
+            className="text-secondary flex items-center gap-2 hover:opacity-80"
+          >
+            <span className="size-6 flex items-center justify-center">
+              {socialIcons[link.key]}
+            </span>
+          </a>
+        ))}
+      </div>
+    </Container>
+  );
 };
 
 export default Hero;

@@ -16,13 +16,20 @@
     <meta property="og:description" content="Full-stack developer portfolio built with MERN stack." />
     <meta property="og:type" content="website" />
 
-    <!-- Google Fonts — Inter for clean modern typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Geist Mono — self-hosted via `geist` npm package (https://vercel.com/font?type=mono) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/GeistMono-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
+    <style>
+      html {
+        font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Roboto Mono,
+          Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+      }
+    </style>
   </head>
   <body class="dark">
     <div id="root"></div>

@@ -10,6 +10,8 @@
 
 export const PERSONAL_INFO = {
   name: 'Prajwal Diwnale',
+  shortName: 'Prajwal',
+  title: 'A MERN Stack developer.',
   roles: [
     'MERN Stack Developer',
     'AI/ML Enthusiast',
@@ -17,10 +19,45 @@ export const PERSONAL_INFO = {
     'Artistic',
   ],
   bio: 'Passionate about building scalable web applications and exploring the intersection of AI and software engineering. Currently pursuing B.Tech Third Year in Computer Engineering.',
+  aboutName: 'Prajwal Diwnale',
+  aboutDescription: `I'm a MERN Stack developer and AI/ML enthusiast. I love building products to solve real-world problems — from full-stack web apps to computer-vision pipelines on P&IDs.`,
+  avatar: '/animated_PP.png',
   email: 'diwnaleprajwal@gmail.com',
   github: 'https://github.com/prajwal314',
   linkedin: 'https://www.linkedin.com/in/prajwal-diwnale-532b0628a/',
-  resume: '#',
+  x: 'https://x.com/',
+  resume: '#resume',
+};
+
+// Sleek-format hero: skill pills embedded in the description.
+// Same idea as reference Hero.tsx template with {skills:n} placeholders.
+export const HERO_SKILLS = [
+  { name: 'React', href: 'https://react.dev/' },
+  { name: 'Node.js', href: 'https://nodejs.org/' },
+  { name: 'MongoDB', href: 'https://www.mongodb.com/' },
+  { name: 'Express', href: 'https://expressjs.com/' },
+  { name: 'Python', href: 'https://www.python.org/' },
+];
+
+export const HERO_SOCIALS = [
+  { name: 'X', href: 'https://x.com/', key: 'x' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/prajwal-diwnale-532b0628a/', key: 'linkedin' },
+  { name: 'Github', href: 'https://github.com/prajwal314', key: 'github' },
+  { name: 'Email', href: 'mailto:diwnaleprajwal@gmail.com', key: 'email' },
+];
+
+// Resume — same iframe-preview pattern as the cloned website's /resume page.
+// Provided Drive view link converted to embed preview URL.
+export const RESUME_CONFIG = {
+  url: 'https://drive.google.com/file/d/16QMl3vUxMpB29iXSb6fVnD2yND8Yrynm/preview',
+  downloadUrl: 'https://drive.google.com/file/d/16QMl3vUxMpB29iXSb6fVnD2yND8Yrynm/view?usp=sharing',
+};
+
+export const GITHUB_CONFIG = {
+  username: 'prajwal314',
+  apiUrl: 'https://github-contributions-api.deno.dev',
+  title: 'GitHub Activity',
+  subtitle: 'coding journey over the past year',
 };
 
 export const EDUCATION = [
@@ -107,9 +144,22 @@ export const SKILLS = {
 };
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#hero' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Work', href: '#experience' },
   { label: 'Projects', href: '#projects' },
+  { label: 'About', href: '#about' },
+  { label: 'Resume', href: '#resume' },
   { label: 'Contact', href: '#contact' },
 ];
+
+export const FOOTER_CONFIG = {
+  developer: 'Prajwal Diwnale',
+  text: 'Design & Developed by',
+  copyright: 'All rights reserved.',
+};
+
+export const CTA_CONFIG = {
+  preText: "Hey, you scrolled this far, let's talk.",
+  linkText: 'Get in touch',
+  profileImage: '/animated_PP.png',
+  profileAlt: 'Prajwal Diwnale',
+};
