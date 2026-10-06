@@ -39,16 +39,6 @@ const Resume = () => {
               </a>
             </div>
           </div>
-          <hr className={dark ? 'border-white/10' : 'border-black/10'} />
-          <div className="mx-auto max-w-2xl">
-            <iframe
-              src={RESUME_CONFIG.url}
-              title="Resume"
-              className={`min-h-screen w-full rounded-lg border ${
-                dark ? 'border-white/10 bg-white' : 'border-black/10 bg-white'
-              }`}
-            />
-          </div>
         </div>
       </section>
     </Container>

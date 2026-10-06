@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <Container className="sticky top-0 z-20 rounded-md py-4 backdrop-blur-sm">
-      <div className="flex items-center justify-between px-6">
+      <div className="flex items-center justify-between">
         <div className="flex items-baseline gap-4">
           <div className="hidden sm:flex items-center justify-center gap-4">
             {NAV_LINKS.map((item) => (
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="sm:hidden px-6 pt-3 pb-1 flex flex-col gap-1">
+        <div className="sm:hidden pt-3 pb-1 flex flex-col gap-1">
           {NAV_LINKS.map((item) => (
             <button
               key={item.label}

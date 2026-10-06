@@ -40,7 +40,7 @@ export const HERO_SKILLS = [
 ];
 
 export const HERO_SOCIALS = [
-  { name: 'X', href: 'https://x.com/', key: 'x' },
+  { name: 'X', href: 'https://x.com/prajwal_diwnale', key: 'x' },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/prajwal-diwnale-532b0628a/', key: 'linkedin' },
   { name: 'Github', href: 'https://github.com/prajwal314', key: 'github' },
   { name: 'Email', href: 'mailto:diwnaleprajwal@gmail.com', key: 'email' },
@@ -90,50 +90,62 @@ export const EXPERIENCE = [
 ];
 
 export const SKILLS = {
-  programming: {
-    title: 'Programming',
+  languages: {
+    title: 'Languages',
     items: [
-      { name: 'C++' },
-      { name: 'Python'},
-      { name: 'JavaScript'},
-      { name: 'TypeScript'},
-    ],
-  },
-  mern: {
-    title: 'MERN Stack',
-    items: [
-      { name: 'React'},
-      { name: 'Node.js'},
-      { name: 'Express.js'},
-      { name: 'MongoDB'},
+      { name: 'C++', href: 'https://isocpp.org/', icon: 'SiCplusplus' },
+      { name: 'Python', href: 'https://www.python.org/', icon: 'SiPython' },
+      { name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', icon: 'SiJavascript' },
+      { name: 'TypeScript', href: 'https://www.typescriptlang.org/', icon: 'SiTypescript' },
     ],
   },
   databases: {
     title: 'Databases',
     items: [
-      { name: 'MySQL'},
-      { name: 'MongoDB'},
-      { name: 'Convex'},
+      { name: 'MongoDB', href: 'https://www.mongodb.com/', icon: 'SiMongodb' },
+      { name: 'SQL', href: 'https://www.mysql.com/', icon: 'SiMysql' },
+      { name: 'Convex', href: 'https://www.convex.dev/', icon: 'HiCloud' },
+      { name: 'ChromaDB', href: 'https://www.trychroma.com/', icon: 'HiDatabase' },
+    ],
+  },
+  web: {
+    title: 'Web Stack',
+    items: [
+      { name: 'HTML5', href: 'https://developer.mozilla.org/en-US/docs/Web/HTML', icon: 'SiHtml5' },
+      { name: 'CSS3', href: 'https://developer.mozilla.org/en-US/docs/Web/CSS', icon: 'SiCss3' },
+      { name: 'Tailwind CSS', href: 'https://tailwindcss.com/', icon: 'SiTailwindcss' },
+      { name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', icon: 'SiJavascript' },
+      { name: 'TypeScript', href: 'https://www.typescriptlang.org/', icon: 'SiTypescript' },
+      { name: 'React', href: 'https://react.dev/', icon: 'SiReact' },
+      { name: 'Next.js', href: 'https://nextjs.org/', icon: 'SiNextdotjs' },
+      { name: 'Express.js', href: 'https://expressjs.com/', icon: 'SiExpress' },
+      { name: 'Node.js', href: 'https://nodejs.org/', icon: 'SiNodedotjs' },
+      { name: 'REST API', href: 'https://restfulapi.net/', icon: 'HiGlobe' },
     ],
   },
   aiml: {
     title: 'AI / ML',
     items: [
-      { name: 'Generative AI' },
-      { name: 'RAG' },
-      { name: 'OpenCV' },
-      { name: 'NLP' },
-      { name: 'YOLO Model' },
+      { name: 'GenAI', href: 'https://openai.com/', icon: 'HiSparkles' },
+      { name: 'NLP', href: 'https://en.wikipedia.org/wiki/Natural_language_processing', icon: 'HiChat' },
+      { name: 'OpenCV', href: 'https://opencv.org/', icon: 'SiOpencv' },
+      { name: 'YOLO Model', href: 'https://www.ultralytics.com/', icon: 'HiEye' },
+      { name: 'OCR', href: 'https://en.wikipedia.org/wiki/Optical_character_recognition', icon: 'HiDocumentText' },
+      { name: 'RAG', href: 'https://en.wikipedia.org/wiki/Retrieval-augmented_generation', icon: 'HiSearchCircle' },
+      { name: 'VectorDB', href: 'https://en.wikipedia.org/wiki/Vector_database', icon: 'HiDatabase' },
     ],
   },
   devops: {
     title: 'Cloud & DevOps',
     items: [
-      { name: 'Github Actions' },
-      { name: 'AWS( S3, EC2, Amplify, IAM)' },
+      { name: 'GitHub Actions', href: 'https://github.com/features/actions', icon: 'SiGithubactions' },
+      { name: 'Amazon S3', href: 'https://aws.amazon.com/s3/', icon: 'SiAmazons3' },
+      { name: 'Amazon EC2', href: 'https://aws.amazon.com/ec2/', icon: 'SiAmazonec2' },
+      { name: 'Amazon IAM', href: 'https://aws.amazon.com/iam/', icon: 'HiLockClosed' },
+      { name: 'Vercel', href: 'https://vercel.com/', icon: 'SiVercel' },
     ],
   },
- 
+
 };
 
 export const NAV_LINKS = [
