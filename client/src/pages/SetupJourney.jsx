@@ -87,9 +87,11 @@ export const Journey = () => {
             <HiBadgeCheck size={16} />
           </span>
           <span className="flex w-full flex-col">
-            <span className="text-base font-semibold">Certificates & Achievements</span>
-            <span className="text-sm text-secondary">
-              Frontend Developer @ Sarvodaya Arogya Vikas Foundation • P&ID computer-vision research project
+            <span className="text-base font-semibold">Certifications</span>
+            <span className="text-sm text-secondary flex flex-col gap-1 mt-1">
+              <span>IBM DevOps and Software Engineering — Apr 29, 2026</span>
+              <span>Generative AI Professional by Oracle — Oct 27, 2025</span>
+              <span>AI Bootcamp by C-DAC — Aug 21, 2025</span>
             </span>
           </span>
         </div>

@@ -5,9 +5,8 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiMail, HiX } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
-import { PERSONAL_INFO, HERO_SKILLS, HERO_SOCIALS } from '../utils/constants';
+import { PERSONAL_INFO, HERO_SOCIALS } from '../utils/constants';
 import Container from '../components/Container';
-import Skill from '../components/Skill';
 
 const socialIcons = {
   x: <HiX size={24} />,
@@ -23,7 +22,7 @@ const Hero = () => {
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <Container className="mx-auto max-w-5xl pt-10">
+    <Container className="pt-10">
       <img
         src={PERSONAL_INFO.avatar}
         alt="Prajwal Diwnale"
@@ -32,23 +31,9 @@ const Hero = () => {
 
       <div className="mt-8 flex flex-col gap-2">
         <h1 className="text-4xl font-bold">
-          Hi, I&apos;m {PERSONAL_INFO.shortName} —{' '}
-          <span className="text-secondary">{PERSONAL_INFO.title}</span>
+          Sup, I&apos;m {PERSONAL_INFO.shortName} -{' '}
+          <span className="text-secondary">A Software Engineer.</span>
         </h1>
-
-        <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
-          <span>I build full-stack web apps using </span>
-          {HERO_SKILLS.map((s, i) => (
-            <span key={s.name} className="inline-flex items-center gap-1.5">
-              <Skill name={s.name} href={s.href} />
-              {i < HERO_SKILLS.length - 2 ? <span>,</span> : i === HERO_SKILLS.length - 2 ? <span> and</span> : <span>.</span>}
-            </span>
-          ))}
-          <span>
-            {' '}With a focus on <b className={dark ? 'text-white' : 'text-gray-900'}>UI</b> design.
-            Enthusiastic about <b className={dark ? 'text-white' : 'text-gray-900'}>AI/ML</b>, driven by a keen eye for detail.
-          </span>
-        </div>
       </div>
 
       <div className="mt-8 flex flex-wrap gap-4">

@@ -18,9 +18,9 @@ export const PERSONAL_INFO = {
     'Problem Solver',
     'Artistic',
   ],
-  bio: 'Passionate about building scalable web applications and exploring the intersection of AI and software engineering. Currently pursuing B.Tech Third Year in Computer Engineering.',
+  bio: 'Passionate about building scalable web applications and exploring the intersection of AI and software engineering. Currently pursuing B.Tech Final Year in Computer Engineering at VIIT Pune.',
   aboutName: 'Prajwal Diwnale',
-  aboutDescription: `I'm a MERN Stack developer and AI/ML enthusiast. I love building products to solve real-world problems — from full-stack web apps to computer-vision pipelines on P&IDs.`,
+  aboutDescription: `I'm a MERN Stack developer and AI/ML enthusiast. I love building products to solve real-world problems — from full-stack web apps to computer-vision pipelines.`,
   avatar: '/animated_PP.png',
   email: 'diwnaleprajwal@gmail.com',
   github: 'https://github.com/prajwal314',
@@ -51,13 +51,6 @@ export const HERO_SOCIALS = [
 export const RESUME_CONFIG = {
   url: 'https://drive.google.com/file/d/16QMl3vUxMpB29iXSb6fVnD2yND8Yrynm/preview',
   downloadUrl: 'https://drive.google.com/file/d/16QMl3vUxMpB29iXSb6fVnD2yND8Yrynm/view?usp=sharing',
-};
-
-export const GITHUB_CONFIG = {
-  username: 'prajwal314',
-  apiUrl: 'https://github-contributions-api.deno.dev',
-  title: 'GitHub Activity',
-  subtitle: 'coding journey over the past year',
 };
 
 export const EDUCATION = [
@@ -144,7 +137,7 @@ export const SKILLS = {
 };
 
 export const NAV_LINKS = [
-  { label: 'Work', href: '#experience' },
+  { label: 'Work', href: '#work' },
   { label: 'Projects', href: '#projects' },
   { label: 'About', href: '#about' },
   { label: 'Resume', href: '#resume' },

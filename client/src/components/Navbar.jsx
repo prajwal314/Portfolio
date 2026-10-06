@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import { HiSun, HiMoon, HiMenuAlt3, HiX } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
-import { NAV_LINKS, PERSONAL_INFO } from '../utils/constants';
+import { NAV_LINKS } from '../utils/constants';
 import Container from './Container';
 
 const Navbar = () => {
@@ -23,13 +23,6 @@ const Navbar = () => {
     <Container className="sticky top-0 z-20 rounded-md py-4 backdrop-blur-sm">
       <div className="flex items-center justify-between px-6">
         <div className="flex items-baseline gap-4">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="Home"
-            className="text-base font-bold tracking-tight cursor-pointer hover:opacity-80"
-          >
-            {PERSONAL_INFO.shortName}
-          </button>
           <div className="hidden sm:flex items-center justify-center gap-4">
             {NAV_LINKS.map((item) => (
               <button

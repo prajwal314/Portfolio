@@ -33,7 +33,7 @@ const Experience = () => {
 
   return (
     <Container className="mt-20">
-      <section id="experience">
+      <section id="work">
         <SectionHeading subHeading="Featured" heading="Experience" />
         <div className="mt-4 flex flex-col gap-8">
           {visible.map((exp) => (
